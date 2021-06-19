@@ -3,6 +3,13 @@
  **************************************/
 
 body {
+    background: #005577;
+    height: 100%;
+    margin: 0;
+    width: 100%;
+}
+
+canvas#app {
     background: #3399ff;
     height: 100%;
     width: 100%;
