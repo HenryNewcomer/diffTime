@@ -5,12 +5,41 @@
   <title>DiffTime - Measure your payroll easier!</title>
   <meta name="author" content="Henry Newcomer">
   <meta name="description" content="diffTime App - Author: Henry Newcomer">
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/init.js"></script>
 </head>
 <body>
-  <main>
-    <canvas id="app" width="100%" height="100%"></canvas>
-  </main>
+    <div id="diff_time">
+      <ul id="input_area">
+        <!-- Don't pass information via get/post; call function and grab values. -->
+        <form action="javascript:calcDiff();" id="input_times">
+          <div class="container">
+            <li><label for="start_time">Start Time</label></li>
+            <li><input type="time" name="start_time" id="start_time" step="1"></input></li>
+          </div>
+          <div class="container">
+            <li><label for="stop_time">Stop Time</label></li>
+            <li><input type="time" name="stop_time" id="stop_time" step="1"></input></li>
+            <!-- <li><button type="submit" form="input_times" name="log_now" id="log_now">NOW</button></li> -->
+          </div>
+          <div class="container">
+            <li><button type="submit" form="input_times" name="submit" id="submit">Calculate</button></li>
+        </form>
+      </ul>
+      <!-- Currently unused -->
+      <ul id="logs">
+        <li>[log]</li>
+        <li>[log]</li>
+        <li>[log]</li>
+        <li>[log]</li>
+        <li>[log]</li>
+      </ul>
+      <!-- /Currently unused -->
+      <ul id="diff">
+        <li>Diff:</li>
+        <li>[diff result]</li>
+      </ul>
+    </div>
 <!-- TODO Remove for public -->
 <script id=">__bs_script__">//<![CDATA[
     document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.26.14'><\/script>".replace("HOST", location.hostname));

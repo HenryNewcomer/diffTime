@@ -3,13 +3,14 @@
  **************************************/
 
 function main() {
-    showGui();
+    do2();
+    console.log("LOADED JS");
 }
 
-function showGui() {
+function do2() {
     let start = Date.now();
     let stop = Date.now();
-  return;
+
 }
 
 main();
