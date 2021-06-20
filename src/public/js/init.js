@@ -42,7 +42,8 @@ function formatTotalSecsIntoTimeWorked(seconds_worked) {
     leftover_time -= mins * 60;
     const secs = leftover_time;
 
-    output = "<br>(Worked for: " + hrs + " hr" + isSingular(hrs) + ", " + mins + " min" + isSingular(mins) + ", and " + secs + " second" + isSingular(secs) + ")";
+    output = " hrs<br> \
+        (Worked for: " + hrs + " hr" + isSingular(hrs) + ", " + mins + " min" + isSingular(mins) + ", and " + secs + " second" + isSingular(secs) + ")";
     return output;
 }
 
@@ -79,7 +80,7 @@ function updateDiffText(total_seconds_for_project = 0) {
 function getTimeAsFloatHours(seconds = 0) {
     const secs_in_hrs = 3600;
     const float_hours = seconds / secs_in_hrs;
-    return float_hours.toFixed(4);
+    return float_hours.toFixed(5);
 }
 
 main();
