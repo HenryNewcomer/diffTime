@@ -14,19 +14,20 @@ function calcDiff() {
 
 function convertTimeToSeconds(hh_mm_ss = "00:00:00") {
     let total_seconds = 0;
+
+    /* Check how many segments were sent */
+
+
     const split_time = hh_mm_ss.split(':');
-    let hh = 0;
-    let mm = 0;
+    const hh = parseInt(split_time[0]);
+    const mm = parseInt(split_time[1]);
     let ss = 0;
+    if (split_time.length == 3) {
+        ss = parseInt(split_time[2]);
+    }
 
-    hh = split_time[0];
-    mm = split_time[1];
-    /* TODO Check if seconds were passed or not (if not, set to 00 secs) */
-    ss = split_time[2];
-
-    console.log(" - hh:mm:ss " + hh + " " + mm + " " + ss);
+    /* This is the same as (hh*60)+(mm*60)+ss */
     total_seconds = (60 * (mm + (hh * 60))) + ss;
-    console.log(" -- total_seconds: " + total_seconds);
 
     return total_seconds;
 }
@@ -34,14 +35,31 @@ function convertTimeToSeconds(hh_mm_ss = "00:00:00") {
 function getDiff() {
     let start = document.getElementById('start_time').value;
     let stop = document.getElementById('stop_time').value;
+    let diff_in_seconds = 0;
 
-    // convert strs to actual numbers/time
-    convertTimeToSeconds(start);
-    debugger;
+    if (start != "" && stop != "") {
+        // convert strs to total seconds
+        start = convertTimeToSeconds(start);
+        stop = convertTimeToSeconds(stop);
 
-    let diff = stop - start;
+        diff_in_seconds = stop - start;
+        float_hours = getTimeAsFloatHours(diff_in_seconds);
 
-    // console.log("Diff: " + convertTimeToSeconds);
+        /* TODO Also show how many hrs, mins, and secs were spent working */
+        updateDiffText(float_hours + "<br>(" + diff_in_seconds + " seconds)");
+    } else {
+        updateDiffText("<span class=\"error\">Error: blank time value found. Make sure both Start and Stop times are properly configured.</span>");
+    }
+}
+
+function updateDiffText(total_seconds = "0 seconds") {
+    document.getElementById("result").innerHTML = total_seconds;
+}
+
+function getTimeAsFloatHours(seconds = 0) {
+    const secs_in_hrs = 3600;
+    const float_hours = seconds / secs_in_hrs;
+    return float_hours.toFixed(4);
 }
 
 main();

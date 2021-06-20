@@ -90,3 +90,9 @@ body {
     font-size: 1.2em;
     padding: 8px;
 }
+
+#diff_time .error {
+    /* color: #e34e3e; */
+    color: #914e3e;
+    font-weight: bold;
+}
