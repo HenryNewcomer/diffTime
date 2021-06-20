@@ -91,6 +91,13 @@ body {
     padding: 8px;
 }
 
+#diff_time>ul#diff>li#result {
+    color: #fff;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+}
+
 #diff_time .error {
     /* color: #e34e3e; */
     color: #914e3e;

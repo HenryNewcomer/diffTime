@@ -15,11 +15,11 @@
         <form action="javascript:calcDiff();" id="input_times">
           <div class="container">
             <li><label for="start_time">Start Time</label></li>
-            <li><input type="time" name="start_time" id="start_time" step="1"></input></li>
+            <li><input type="time" name="start_time" id="start_time" step="1" value="12:00:00" required></input></li>
           </div>
           <div class="container">
             <li><label for="stop_time">Stop Time</label></li>
-            <li><input type="time" name="stop_time" id="stop_time" step="1"></input></li>
+            <li><input type="time" name="stop_time" id="stop_time" step="1" value="12:00:00" required></input></li>
             <!-- <li><button type="submit" form="input_times" name="log_now" id="log_now">NOW</button></li> -->
           </div>
           <div class="container">
@@ -36,7 +36,7 @@
       </ul>
       <!-- /Currently unused -->
       <ul id="diff">
-        <li>Diff:</li>
+        <li>Calculated difference:</li>
         <li id="result"></li>
       </ul>
     </div>
